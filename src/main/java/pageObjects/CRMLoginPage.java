@@ -7,6 +7,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CRMLoginPage {
+	
+	//  this page is created for to define all the webelements located on CRM Login page to till Published App page. 
 	public WebDriver driver;
 	public WebDriverWait wait;
 	
@@ -23,30 +25,36 @@ public class CRMLoginPage {
 	}
 
 	public WebElement getpwd() {
+		//web element for the password field
 		return driver.findElement(password);
 		
 	}
 	
 	public WebElement getsignin() {
+		//web element for the signin button
 		return driver.findElement(signin);
 	}
 
 	public WebElement getVerify() {
+		//web element for the mobile authenticate code verification button. 
 		return driver.findElement(verify);
 		
 	}
 	
 	public WebElement getstaysignin() {
+		// web element for the click on stay sign in option. 
 		wait = new WebDriverWait (driver,20);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(staysignin));
 		return driver.findElement(staysignin);		
 	}
 	
 	public WebElement getdontshowcheckbox() {
+		//web element for the to click on dont show this message again checkbox
 		return driver.findElement(dontshowcheckbox);
 	}
 	
 	public WebElement getsigninYes() {
+		//web element for the to select option Yes on dont show this again checkbox option.
 		return driver.findElement(signinYes);
 		
 	}

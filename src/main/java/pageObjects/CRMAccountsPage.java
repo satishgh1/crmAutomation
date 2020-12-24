@@ -3,13 +3,12 @@ package pageObjects;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class CRMAccounts {
+public class CRMAccountsPage {
 
 	public WebDriver driver;
 	
-	//By AccountDBA Name
 	
-	public CRMAccounts(WebDriver driver) {
+	public CRMAccountsPage(WebDriver driver) {
 		// TODO Auto-generated constructor stub
 		this.driver = driver;
 	}
@@ -18,4 +17,6 @@ public class CRMAccounts {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	
 }

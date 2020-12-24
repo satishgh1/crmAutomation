@@ -10,6 +10,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class base {	
+	
+	// this is base class page where driver is initialized and data.properties mentioned. 
 	public WebDriver driver;
 	
 	public Properties prop;
@@ -17,13 +19,14 @@ public class base {
 	public WebDriver initializeDriver() throws IOException
 	{
 		prop= new Properties();
-		FileInputStream fls= new FileInputStream("D:\\Automation\\CRMAutomationFramework\\crmAutomation\\src\\main\\java\\resources\\data.properties");
+		FileInputStream fls= new FileInputStream("C:\\Users\\satishg\\crmAutomation\\src\\main\\java\\resources\\data.properties");
 		
 		prop.load(fls);
 		String browserName=prop.getProperty("browser");
 		System.out.println(browserName);
 		if(browserName.equals("chrome"))
 		{
+			// you can mention chromedriver.exe path here to execute all the scripts.
 			System.setProperty("webdriver.chrome.driver", "D:\\chrome\\chromedriver.exe");
 			driver = new ChromeDriver();
 			//execute the code

@@ -18,6 +18,7 @@ public class AppLandingPage {
 	}
 
 	public WebElement getddm () {
+		//web element for the demand driver published app
 		return driver.findElement(ddmapp);
 		
 	}

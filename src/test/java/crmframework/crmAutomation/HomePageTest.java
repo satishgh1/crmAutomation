@@ -2,14 +2,12 @@ package crmframework.crmAutomation;
 
 import java.io.IOException;
 
-import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import pageObjects.AppLandingPage;
-import pageObjects.CRMAccounts;
+import pageObjects.CRMAccountsPage;
 import pageObjects.CRMHomePage;
 import pageObjects.CRMLandingPage;
 import pageObjects.CRMLoginPage;
@@ -25,7 +23,11 @@ public class HomePageTest extends base {
 	
 	@Test
 	public void crmhomepage() throws IOException, InterruptedException {
-	
+		
+		//this test case will validate the Login to CRM Application
+		//verify Select Demand Driver App from Published page 
+		//verify CRM Home page launched
+		
 		driver.get(prop.getProperty("url"));
 		driver.manage().window().maximize();
 		CRMLandingPage lap = new CRMLandingPage(driver);
@@ -42,8 +44,8 @@ public class HomePageTest extends base {
 		lp.getsigninYes().click();
 		Thread.sleep(30000);
 		driver.switchTo().frame("AppLandingPage");
-		AppLandingPage ap = new AppLandingPage(driver);
-		ap.getddm().click();
+		AppLandingPage alp = new AppLandingPage(driver);
+		alp.getddm().click();
 		CRMHomePage hp = new CRMHomePage(driver);
 		hp.getHometitle().isDisplayed();
 		System.out.println("Login to CRM successfully");		
@@ -59,7 +61,16 @@ public class HomePageTest extends base {
 //		CRMAccounts ca= new CRMAccounts(driver);
 //		Assert.assertEquals("Cyb_QATest", ca.getAccountDBAname().getText());
 //		
-//	}	
+//	}
+	
+	@Test
+	public void validateRelatedTabs() {
+		// verify on selecting respective field is get opened or not on selecting option from Accounts -> Related
+		CRMHomePage hp = new CRMHomePage(driver);
+		hp.getAccountTab().click();
+			
+	}
+	
 	@AfterTest
 	public void teardown()
 	{
