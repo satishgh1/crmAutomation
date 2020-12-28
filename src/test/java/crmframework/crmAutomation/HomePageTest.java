@@ -28,7 +28,7 @@ public class HomePageTest extends base {
 		//verify Select Demand Driver App from Published page 
 		//verify CRM Home page launched
 		
-		driver.get(prop.getProperty("url"));
+		driver.get(prop.getProperty("url")); //CRM App
 		driver.manage().window().maximize();
 		CRMLandingPage lap = new CRMLandingPage(driver);
 		lap.getLogin().sendKeys(prop.getProperty("username"));
@@ -43,8 +43,10 @@ public class HomePageTest extends base {
 		lp.getdontshowcheckbox().click();
 		lp.getsigninYes().click();
 		Thread.sleep(30000);
+		//to wait on Published App Landing page
 		driver.switchTo().frame("AppLandingPage");
 		AppLandingPage alp = new AppLandingPage(driver);
+		//select Demand Driver application on Landing Page
 		alp.getddm().click();
 		CRMHomePage hp = new CRMHomePage(driver);
 		hp.getHometitle().isDisplayed();
@@ -67,6 +69,7 @@ public class HomePageTest extends base {
 	public void validateRelatedTabs() {
 		// verify on selecting respective field is get opened or not on selecting option from Accounts -> Related
 		CRMHomePage hp = new CRMHomePage(driver);
+		//Select Accounts menu from left navigation bar
 		hp.getAccountTab().click();
 			
 	}
