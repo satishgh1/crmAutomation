@@ -19,7 +19,7 @@ public class base {
 	public WebDriver initializeDriver() throws IOException
 	{
 		prop= new Properties();
-		FileInputStream fls= new FileInputStream("C:\\Users\\satishg\\crmAutomation\\src\\main\\java\\resources\\data.properties");
+		FileInputStream fls= new FileInputStream("C:\\Users\\shradhama\\crmAutomation\\src\\main\\java\\resources\\data.properties");
 		
 		prop.load(fls);
 		String browserName=prop.getProperty("browser");
@@ -27,7 +27,7 @@ public class base {
 		if(browserName.equals("chrome"))
 		{
 			// you can mention chromedriver.exe path here to execute all the scripts.
-			System.setProperty("webdriver.chrome.driver", "D:\\chrome\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "D:\\Automation\\chromedriver_win32\\chromedriver.exe");
 			driver = new ChromeDriver();
 			//execute the code
 			

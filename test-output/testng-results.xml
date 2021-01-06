@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="136756" started-at="2020-12-28T10:58:59Z" finished-at="2020-12-28T11:01:15Z">
+  <suite name="Default suite" duration-ms="145308" started-at="2021-01-06T07:58:11Z" finished-at="2021-01-06T08:00:36Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="136756" started-at="2020-12-28T10:58:59Z" finished-at="2020-12-28T11:01:15Z">
+    <test name="Default test" duration-ms="145308" started-at="2021-01-06T07:58:11Z" finished-at="2021-01-06T08:00:36Z">
       <class name="crmframework.crmAutomation.HomePageTest">
-        <test-method status="PASS" signature="initialize()[pri:0, instance:crmframework.crmAutomation.HomePageTest@14acaea5]" name="initialize" is-config="true" duration-ms="11807" started-at="2020-12-28T10:58:59Z" finished-at="2020-12-28T10:59:10Z">
+        <test-method status="PASS" signature="initialize()[pri:0, instance:crmframework.crmAutomation.HomePageTest@59fa1d9b]" name="initialize" is-config="true" duration-ms="3152" started-at="2021-01-06T13:28:11Z" finished-at="2021-01-06T13:28:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initialize -->
-        <test-method status="PASS" signature="crmhomepage()[pri:0, instance:crmframework.crmAutomation.HomePageTest@14acaea5]" name="crmhomepage" duration-ms="117898" started-at="2020-12-28T10:59:11Z" finished-at="2020-12-28T11:01:08Z">
+        <test-method status="PASS" signature="crmhomepage()[pri:0, instance:crmframework.crmAutomation.HomePageTest@59fa1d9b]" name="crmhomepage" duration-ms="141744" started-at="2021-01-06T13:28:14Z" finished-at="2021-01-06T13:30:36Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- crmhomepage -->
-        <test-method status="PASS" signature="validateRelatedTabs()[pri:0, instance:crmframework.crmAutomation.HomePageTest@14acaea5]" name="validateRelatedTabs" duration-ms="640" started-at="2020-12-28T11:01:08Z" finished-at="2020-12-28T11:01:09Z">
+        <test-method status="PASS" signature="validateRelatedTabs()[pri:0, instance:crmframework.crmAutomation.HomePageTest@59fa1d9b]" name="validateRelatedTabs" duration-ms="163" started-at="2021-01-06T13:30:36Z" finished-at="2021-01-06T13:30:36Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateRelatedTabs -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:crmframework.crmAutomation.HomePageTest@14acaea5]" name="teardown" is-config="true" duration-ms="6300" started-at="2020-12-28T11:01:09Z" finished-at="2020-12-28T11:01:15Z">
+        <test-method status="PASS" signature="teardown()[pri:0, instance:crmframework.crmAutomation.HomePageTest@59fa1d9b]" name="teardown" is-config="true" duration-ms="230" started-at="2021-01-06T13:30:36Z" finished-at="2021-01-06T13:30:36Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->

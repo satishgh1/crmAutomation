@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 import pageObjects.AppLandingPage;
 import pageObjects.CRMAccountsPage;
 import pageObjects.CRMHomePage;
+import pageObjects.CRMIncentiveTab;
 import pageObjects.CRMLandingPage;
 import pageObjects.CRMLoginPage;
 import resources.base;
@@ -72,6 +73,50 @@ public class HomePageTest extends base {
 		//Select Accounts menu from left navigation bar
 		hp.getAccountTab().click();
 			
+	}
+	
+	@Test
+	public void AddIncentive() {
+		
+		CRMIncentiveTab inc = new CRMIncentiveTab(driver);
+		
+		// Click Incentives tab at existing account
+		inc.getinctab().click();
+		
+		// Open New Incentive Form
+		inc.getnewinc().click();
+		
+		// Select Contact at New Incentive Form
+		inc.getconclick().click();
+		inc.getconsearch().click();
+		inc.getconselect().click();
+		
+		// Select Market at New Incentive Form
+		inc.getmarclick().click();
+		inc.getmarsearch().click();
+		inc.getmarselect().click();
+		
+		// Select Referral Source at New Incentive Form
+		inc.getrefclick().click();
+		inc.getrefsearch().click();
+		inc.getrefselect().click();
+		
+		// Enter Other Incentive Source at New Incentive Form
+		inc.getosclick().click();
+		inc.getosvalue().sendKeys("None");
+		
+		// Save and Close Incentive
+		inc.getincsave().click();
+		
+		// Incentive Verification
+		if (inc.accname().getText().contains("Cyb") && inc.conname().getText().contains("New") && inc.marname().getText().contains("Jan"))
+		{
+			System.out.println ("Incentive added successfully.");
+		}
+		else
+		{
+			System.out.println ("Incentive not added.");
+		}
 	}
 	
 	@AfterTest
