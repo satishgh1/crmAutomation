@@ -37,8 +37,8 @@ public class CRMAccountsPage {
 	By successmsg = By.xpath("//span[@data-id='notification-message']");
 	By accpagebackbtn = By.xpath("//span[@class='symbolFont BackButton-symbol pa-ak ']");
 	By relatedTab = By.xpath("//li[@title='Related']");
-	By activitiesRelatedTab = By.xpath("//span[@id='navActivities_Related']");
-	By activityTab = By.xpath("//li[@title='Activities']");
+	By activitiesRelatedTab = By.xpath("//span[@id='navActivities_Related']"); // added xpath for activities option at Related Dropdown list
+	By activityTab = By.xpath("//li[@title='Activities']");  // added xpath for activity tab 
 	
 	public CRMAccountsPage(WebDriver driver) {
 
