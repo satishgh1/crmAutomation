@@ -2,6 +2,13 @@ package crmframework.crmAutomation;
 
 import java.io.IOException;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -15,13 +22,17 @@ import resources.base;
 
 public class HomePageTest extends base {
 	
+	public WebDriverWait wait;
+	public String accnameText;
+	
+	
 	@BeforeTest
 	public void initialize() throws IOException
 	{
 		driver = initializeDriver();		
 	}
 	
-	@Test
+	@Test(priority=1)
 	public void crmhomepage() throws IOException, InterruptedException {
 		
 		//this test case will validate the Login to CRM Application
@@ -33,45 +44,110 @@ public class HomePageTest extends base {
 		CRMLandingPage lap = new CRMLandingPage(driver);
 		lap.getLogin().sendKeys(prop.getProperty("username"));
 		lap.getnext().click();
+		
 		CRMLoginPage lp= new CRMLoginPage(driver);
 		lp.getpwd().click();
 		lp.getpwd().sendKeys(prop.getProperty("password"));
 		lp.getsignin().click();
-		//Wait to enter the verification code form Mobile
+		//Wait to enter the verification code from Mobile
 		Thread.sleep(30000);
 		lp.getVerify().click();
 		lp.getdontshowcheckbox().click();
 		lp.getsigninYes().click();
-		Thread.sleep(30000);
 		//to wait on Published App Landing page
+		Thread.sleep(30000);
 		driver.switchTo().frame("AppLandingPage");
 		AppLandingPage alp = new AppLandingPage(driver);
 		//select Demand Driver application on Landing Page
 		alp.getddm().click();
-		CRMHomePage hp = new CRMHomePage(driver);
-		hp.getHometitle().isDisplayed();
+		
+		CRMHomePage hp1 = new CRMHomePage(driver);
+		hp1.getHometitle().isDisplayed();
 		System.out.println("Login to CRM successfully");		
 	}
 	
-//	@Test
-//	public void validateExistingAccount() {
-//		
-//		CRMHomePage hp = new CRMHomePage(driver);
-//		hp.getSearchAccountField().click();
-//		hp.getSearchAccountField().sendKeys("Cyb_QATest");
-//		hp.getstartsearch().click();
-//		CRMAccounts ca= new CRMAccounts(driver);
-//		Assert.assertEquals("Cyb_QATest", ca.getAccountDBAname().getText());
-//		
-//	}
-	
-	@Test
-	public void validateRelatedTabs() {
-		// verify on selecting respective field is get opened or not on selecting option from Accounts -> Related
-		CRMHomePage hp = new CRMHomePage(driver);
+	@Test(priority=2)
+	public void verifyCreateAccount() throws InterruptedException
+	{
 		//Select Accounts menu from left navigation bar
+		CRMHomePage hp = new CRMHomePage(driver);
 		hp.getAccountTab().click();
-			
+		//Wait till Active Accounts page is displayed
+		new WebDriverWait (driver,20).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'New')]")));
+		
+		CRMAccountsPage ap = new CRMAccountsPage(driver);
+		//Click on 'New' button
+		ap.getAccountNewbtn().click();
+		//Wait till new account page is displayed
+		new WebDriverWait (driver,20).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[@title='New Account']")));
+		
+		//Fill all the mandatory fields to create new account
+		//Enter Account Name
+		WebElement accountName = driver.findElement(By.xpath("//input[@id='id-276390f9-8bbf-4452-8f24-636b0ccaee2c-1-name8-name.fieldControl-text-box-text']"));
+		accountName.click();
+		accnameText = "Cyb_NewAcc06";
+		accountName.sendKeys(accnameText);
+		
+		//Enter Phone no.
+		ap.getPhone().click();
+		ap.getPhone().sendKeys(prop.getProperty("phone"));
+		Thread.sleep(5000);
+		
+		//Scroll up the page till Address field
+		Actions action = new Actions(driver);
+		action.moveToElement(ap.getAddress()).perform();
+		
+		//Select account type
+		ap.getAccTypetxtbx().click();
+		ap.getAcctypeExpandbtn().click();
+		ap.getAccType().click();
+		ap.getAddress().click();
+		
+		//Scroll down on the page
+		action.keyDown(Keys.CONTROL).sendKeys(Keys.DOWN).perform();
+		action.keyDown(Keys.CONTROL).sendKeys(Keys.DOWN).release().perform();
+		
+		Thread.sleep(5000);
+		//Enter Street1 address
+		ap.getStreet1().sendKeys(prop.getProperty("street1"));
+		
+		//Enter City
+		ap.getCity().click();
+		ap.getCity().sendKeys(prop.getProperty("city"));
+				
+		//Enter state
+		ap.getState().click();
+		ap.getState().sendKeys(prop.getProperty("state"));
+		
+		//Enter zipcode
+		ap.getZipcode().click();
+		ap.getZipcode().sendKeys(prop.getProperty("zipcode"));
+		
+		//Enter country
+		ap.getCountrytxbx().click();
+		ap.getCountrydrpbtn().click();
+		ap.getCountryName().click();
+		
+		//Click on Save and Close button
+		ap.getAccSaveCloseBtn().click();
+		//Wait till Active Accounts page is displayed
+		new WebDriverWait (driver,20).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='Active Accounts']")));
+		
+		//Verify the newly created account
+		hp.getSearchAccountField().click();
+		hp.getSearchAccountField().sendKeys(accnameText);
+		hp.getstartsearch().click();
+		Thread.sleep(10000);
+		WebElement validateAccName = driver.findElement(By.xpath("//a[contains(text(),'"+accnameText+"')]"));
+		if (validateAccName.isDisplayed()) {
+			System.out.println("New Account is created successfully");
+		}
+		else {
+			System.out.println("Failed to create a new account");
+		}
+		
+		//Clear the search term
+		hp.getClearSearch().click();
 	}
 	
 	@AfterTest
