@@ -3,10 +3,15 @@ package pageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CRMAccountsPage {
 
+	
 	public WebDriver driver;
+	public WebDriverWait wait;
+	
 	
 	By accountnewbtn = By.xpath("//span[contains(text(),'New')]");
 	By accountNametxtbx = By.xpath("//input[@id='id-276390f9-8bbf-4452-8f24-636b0ccaee2c-1-name8-name.fieldControl-text-box-text']");
@@ -31,6 +36,9 @@ public class CRMAccountsPage {
 	By timelinesavenclosebtn = By.xpath("//button[@data-id='quickCreateSaveAndCloseBtn']");
 	By successmsg = By.xpath("//span[@data-id='notification-message']");
 	By accpagebackbtn = By.xpath("//span[@class='symbolFont BackButton-symbol pa-ak ']");
+	By relatedTab = By.xpath("//li[@title='Related']");
+	By activitiesRelatedTab = By.xpath("//span[@id='navActivities_Related']");
+	By activityTab = By.xpath("//li[@title='Activities']");
 	
 	public CRMAccountsPage(WebDriver driver) {
 
@@ -152,5 +160,17 @@ public class CRMAccountsPage {
 		return driver.findElement(accpagebackbtn);
 	}
 	
+	public WebElement getRelatedTab() {
+		wait = new WebDriverWait (driver,20);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(relatedTab));
+		return driver.findElement(relatedTab);
+	}
 	
+	public WebElement getSelectActivitiesRelated() {
+		return driver.findElement(activitiesRelatedTab);
+	}
+	public WebElement getActivityTab() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(activityTab));
+		return driver.findElement(activityTab);
+	}
 }

@@ -198,6 +198,31 @@ public class HomePageTest extends base {
 				
 		Thread.sleep(3000);	
 	}
+	
+	@Test
+	public void relatedTab() throws InterruptedException {
+	
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS) ;
+		//Remove after final execution
+		CRMHomePage hp3 = new CRMHomePage(driver);
+		hp3.getAccountTab().click();
+		
+		CRMAccountsPage ap1 = new CRMAccountsPage(driver);
+		//Click on 'A' link to sort accounts starts with 'A'
+		ap1.getALetterFilterLink().click();
+		Thread.sleep(4000);	
+			
+		//Select 4th account name in list
+		//WebElement acctName = driver.findElement(By.xpath("//div[@data-id='cell-2-2']"));
+		ap1.getAccountName().click();
+		Thread.sleep(5000);
+		//click on Related Tab and select Activities from list. 
+		ap1.getRelatedTab().click();
+		ap1.getSelectActivitiesRelated().click();
+		Boolean displayActivityTab = ap1.getActivityTab().isDisplayed();
+		System.out.println("Activities Tab Opened successfully:"+displayActivityTab);
+	}
+	
 	@AfterTest
 	public void teardown()
 	{
