@@ -1,6 +1,7 @@
 package crmframework.crmAutomation;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -150,6 +151,53 @@ public class HomePageTest extends base {
 		hp.getClearSearch().click();
 	}
 	
+	@Test(priority=3)
+	public void addTimeline() throws InterruptedException
+	{
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS) ;
+		//Remove after final execution
+		CRMHomePage hp3 = new CRMHomePage(driver);
+		hp3.getAccountTab().click();
+		
+		CRMAccountsPage ap1 = new CRMAccountsPage(driver);
+		//Click on 'A' link to sort accounts starts with 'A'
+		ap1.getALetterFilterLink().click();
+		Thread.sleep(4000);	
+			
+		//Select 4th account name in list
+		//WebElement acctName = driver.findElement(By.xpath("//div[@data-id='cell-2-2']"));
+		ap1.getAccountName().click();
+		Thread.sleep(5000);
+	
+		//Click on create a timeline button
+		ap1.getAddTimelineBtn().click();
+		
+		ap1.getApptmntActivityOptn().click();
+		Thread.sleep(3000);
+		
+		//WebElement subject = driver.findElement(By.xpath("//input[@aria-label='Subject']"));
+		ap1.getTimelineSujecttxbx().click();
+		String subtext = "Cyb_TestAppointment";
+		ap1.getTimelineSujecttxbx().sendKeys(subtext);
+		
+		ap1.getTimelineSavenClosebtn().click();
+		Thread.sleep(5000);
+		
+		//Verify that added Timeline is reflected correctly
+		WebElement timeline = driver.findElement(By.xpath("//*[text()='"+subtext+"']"));
+		Assert.assertEquals(timeline.getText(), subtext);
+		
+		//Verify that expected Success message displayed
+		Thread.sleep(3000);
+		//WebElement toastmsg = driver.findElement(By.xpath("//span[@data-id='notification-message']"));
+		System.out.println(ap1.getSuccessMsg().getText());
+		Assert.assertEquals("Your changes were saved.", ap1.getSuccessMsg().getText());
+		
+		//Navigate back to Active accounts list
+		ap1.getAccPageBackBtn().click();
+				
+		Thread.sleep(3000);	
+	}
 	@AfterTest
 	public void teardown()
 	{

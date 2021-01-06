@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="188543" started-at="2021-01-06T14:24:38Z" finished-at="2021-01-06T14:27:47Z">
+  <suite name="Default suite" duration-ms="192157" started-at="2021-01-06T17:13:21Z" finished-at="2021-01-06T17:16:33Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="188543" started-at="2021-01-06T14:24:38Z" finished-at="2021-01-06T14:27:47Z">
+    <test name="Default test" duration-ms="192157" started-at="2021-01-06T17:13:21Z" finished-at="2021-01-06T17:16:33Z">
       <class name="crmframework.crmAutomation.HomePageTest">
-        <test-method status="PASS" signature="initialize()[pri:0, instance:crmframework.crmAutomation.HomePageTest@8bd1b6a]" name="initialize" is-config="true" duration-ms="7249" started-at="2021-01-06T19:54:38Z" finished-at="2021-01-06T19:54:45Z">
+        <test-method status="PASS" signature="initialize()[pri:0, instance:crmframework.crmAutomation.HomePageTest@8bd1b6a]" name="initialize" is-config="true" duration-ms="9678" started-at="2021-01-06T22:43:21Z" finished-at="2021-01-06T22:43:31Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initialize -->
-        <test-method status="PASS" signature="crmhomepage()[pri:0, instance:crmframework.crmAutomation.HomePageTest@8bd1b6a]" name="crmhomepage" duration-ms="130338" started-at="2021-01-06T19:54:45Z" finished-at="2021-01-06T19:56:56Z">
+        <test-method status="PASS" signature="crmhomepage()[pri:0, instance:crmframework.crmAutomation.HomePageTest@8bd1b6a]" name="crmhomepage" duration-ms="134457" started-at="2021-01-06T22:43:31Z" finished-at="2021-01-06T22:45:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- crmhomepage -->
-        <test-method status="PASS" signature="verifyCreateAccount()[pri:0, instance:crmframework.crmAutomation.HomePageTest@8bd1b6a]" name="verifyCreateAccount" duration-ms="50289" started-at="2021-01-06T19:56:56Z" finished-at="2021-01-06T19:57:46Z">
+        <test-method status="PASS" signature="addTimeline()[pri:0, instance:crmframework.crmAutomation.HomePageTest@8bd1b6a]" name="addTimeline" duration-ms="47187" started-at="2021-01-06T22:45:45Z" finished-at="2021-01-06T22:46:32Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyCreateAccount -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:crmframework.crmAutomation.HomePageTest@8bd1b6a]" name="teardown" is-config="true" duration-ms="633" started-at="2021-01-06T19:57:46Z" finished-at="2021-01-06T19:57:47Z">
+        </test-method> <!-- addTimeline -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:crmframework.crmAutomation.HomePageTest@8bd1b6a]" name="teardown" is-config="true" duration-ms="794" started-at="2021-01-06T22:46:32Z" finished-at="2021-01-06T22:46:33Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->

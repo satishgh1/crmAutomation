@@ -23,7 +23,14 @@ public class CRMAccountsPage {
 	By cntryexpandbtn = By.xpath("//button[@aria-label='Toggle Dropdown']");
 	By countryname = By.xpath("//body/div[@id='_dropdown']/div[3]");
 	By accsavenclosebtn = By.xpath("//button[@aria-label='Save & Close']");
-	
+	By aletterfilterlink = By.xpath("//a[@id='A_link']");
+	By accountname = By.xpath("//div[@data-id='cell-2-2']");
+	By addtimelinebtn = By.xpath("//button[@aria-label='Create a timeline record.']");
+	By appointmentactivityoptn = By.xpath("//li[@aria-label='Appointment Activity']");
+	By timelinesubjecttxtbx = By.xpath("//input[@aria-label='Subject']");
+	By timelinesavenclosebtn = By.xpath("//button[@data-id='quickCreateSaveAndCloseBtn']");
+	By successmsg = By.xpath("//span[@data-id='notification-message']");
+	By accpagebackbtn = By.xpath("//span[@class='symbolFont BackButton-symbol pa-ak ']");
 	
 	public CRMAccountsPage(WebDriver driver) {
 
@@ -104,5 +111,46 @@ public class CRMAccountsPage {
 	{
 		return driver.findElement(accsavenclosebtn);
 	}
+	
+	public WebElement getALetterFilterLink()
+	{
+		return driver.findElement(aletterfilterlink);
+	}
+	
+	public WebElement getAccountName()
+	{
+		return driver.findElement(accountname);
+	}
+	
+	public WebElement getAddTimelineBtn()
+	{
+		return driver.findElement(addtimelinebtn);
+	}
+	
+	public WebElement getApptmntActivityOptn()
+	{
+		return driver.findElement(appointmentactivityoptn);
+	}
+	
+	public WebElement getTimelineSujecttxbx()
+	{
+		return driver.findElement(timelinesubjecttxtbx);
+	}
+	
+	public WebElement getTimelineSavenClosebtn()
+	{
+		return driver.findElement(timelinesavenclosebtn);
+	}
+	
+	public WebElement getSuccessMsg()
+	{
+		return driver.findElement(successmsg);
+	}
+	
+	public WebElement getAccPageBackBtn()
+	{
+		return driver.findElement(accpagebackbtn);
+	}
+	
 	
 }
