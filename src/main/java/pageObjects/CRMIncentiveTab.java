@@ -7,13 +7,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CRMIncentiveTab {
+
 	public WebDriver driver;
 	public WebDriverWait wait;
 
-	// xpath for Open incentive tab for existing account
+	// Open incentive tab for existing account
 	By inctab = By.xpath("//li[@data-id = 'tablist-tab_4']");
 			
-	// xpath for Add new incentive		
+	// Add new incentive	
 	By addinc =	By.xpath("//button[@aria-label = 'New Incentive']");
 	
 	// Select Contact at Add Incentive form
@@ -35,14 +36,14 @@ public class CRMIncentiveTab {
 	By incosclick = By.xpath("//input[@aria-label = 'Other Incentive Source']");
 	By incosvalue = By.xpath("//input[@aria-label = 'Other Incentive Source']");
 	
-	// Save Incentive
+	// Save Incentive	
 	By incsave = By.xpath("//button[@aria-label = 'Save & Close']");
-	
+
 	// Verification
 	By incacc = By.xpath("//div[@title = 'Cyb_Acc1']");
 	By inccon = By.xpath("//div[@title = 'New cyb']");
 	By incmar = By.xpath("//div[@title = '2010 January 1 Daily']");
-	
+
 	//New Incentive Details
 	By incdetails = By.xpath("//span[@aria-label='New Incentive Detail']");
 	
@@ -66,7 +67,7 @@ public class CRMIncentiveTab {
 	//Verification of Incentive details
 	By validateincname = By.xpath("//div[@data-id='cell-0-4']");
 	By incdtlssuccessmsg = By.xpath("//span[@data-id='notification-message']");
-			
+
 	public CRMIncentiveTab (WebDriver driver) {	
 		this.driver = driver;
 	}
@@ -94,7 +95,7 @@ public class CRMIncentiveTab {
 	public WebElement getmarclick () {
 		 return driver.findElement(incmarclick);
 	}
-	
+
 	public WebElement getmarsearch() {	
 		return driver.findElement(incmarsearch);
 	}
@@ -138,6 +139,7 @@ public class CRMIncentiveTab {
 	}
 	
 	public WebElement marname() {
+		
 		return driver.findElement(incmar);
 	}
 
@@ -185,3 +187,4 @@ public class CRMIncentiveTab {
 		return driver.findElement(incdtlssuccessmsg);
 	}
 }
+

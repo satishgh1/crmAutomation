@@ -2,9 +2,9 @@ package crmframework.crmAutomation;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -14,6 +14,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pageObjects.AppLandingPage;
 import pageObjects.CRMAccountsPage;
+import pageObjects.CRMAddMarketingRelationshipOwner;
 import pageObjects.CRMHomePage;
 import pageObjects.CRMIncentiveTab;
 import pageObjects.CRMLandingPage;
@@ -312,6 +313,40 @@ public class HomePageTest extends base {
 		System.out.println("Activities Tab Opened successfully:"+displayActivityTab);
 	}
 	
+	@Test(priority=7)
+	public void AddMarketingRelationshipOwner() {
+
+		CRMAddMarketingRelationshipOwner amro = new CRMAddMarketingRelationshipOwner(driver);
+
+		// Click arrow to open marketing relationship window
+		amro.gethdbtn().click();
+
+		// Click Marketing Relationship Owner lookup
+		amro.getmarlookupclick().click();
+
+		// Select Marketing Relationship Owner in lookup
+		WebElement Owner = amro.getmarlookupselect();
+
+		if (Owner.getText().contains("Bhavesh")) 
+		{
+			amro.getmarlookupselect().click();
+
+		}
+
+		// Save selected marketing relationship owner
+		amro.getmarownersave().click();	
+
+		// Verify selected marketing relationship owner
+		if (amro.getmarownerverify().getText().contains("Bhavesh"))
+		{
+			System.out.println("Marketing Relationship Owner added successfully");
+		}
+		else
+		{
+			System.out.println("Marketing Relationship Owner not added successfully");
+		}
+	}
+
 	@AfterTest
 	public void teardown()
 	{

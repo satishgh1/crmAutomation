@@ -18,7 +18,11 @@ public class base {
 	public WebDriver initializeDriver() throws IOException
 	{
 		prop= new Properties();
+<<<<<<< HEAD
+		FileInputStream fls= new FileInputStream("C:\\Users\\shradhama\\crmAutomation\\src\\main\\java\\resources\\data.properties");
+=======
 		FileInputStream fls= new FileInputStream(System.getProperty("user.dir") +"/src/main/java/resources/data.properties");
+>>>>>>> 5bb1e241bc1ccd65b4af59956efad0be368a161d
 		
 		prop.load(fls);
 		String browserName=prop.getProperty("browser");
@@ -27,7 +31,11 @@ public class base {
 		if(browserName.equals("chrome"))
 		{
 			// you can mention chromedriver.exe path here to execute all the scripts.
+<<<<<<< HEAD
+			System.setProperty("webdriver.chrome.driver", "D:\\Automation\\chromedriver_win32\\chromedriver.exe");
+=======
 			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/Drivers/chromedriver.exe");
+>>>>>>> 5bb1e241bc1ccd65b4af59956efad0be368a161d
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
 		}

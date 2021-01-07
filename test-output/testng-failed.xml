@@ -5,8 +5,15 @@
     <classes>
       <class name="crmframework.crmAutomation.HomePageTest">
         <methods>
+<<<<<<< HEAD
           <include name="addIncentiveDetails"/>
           <include name="crmhomepage"/>
+=======
+<<<<<<< HEAD
+          <include name="AddIncentive"/>
+=======
+>>>>>>> 5bb1e241bc1ccd65b4af59956efad0be368a161d
+>>>>>>> 39e123a779eb324e3f944ef604d1235b59636d53
           <include name="initialize"/>
           <include name="teardown"/>
         </methods>
