@@ -14,8 +14,7 @@ public class CRMLandingPage {
 	
 		By signin = By.xpath("//input[@name='loginfmt']");
 		By next = By.xpath("//input[@id='idSIButton9']");
-		
-		
+			
 		public CRMLandingPage(WebDriver driver) {
 			// TODO Auto-generated constructor stub
 			this.driver = driver; 			
@@ -30,6 +29,5 @@ public class CRMLandingPage {
 		public WebElement getnext() {
 			return driver.findElement(next);		
 		}
-		
 	
 }

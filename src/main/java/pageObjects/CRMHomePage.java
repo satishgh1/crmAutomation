@@ -6,6 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import crmframework.crmAutomation.HomePageTest;
+import resources.base;
+
 public class CRMHomePage {
 
 	// this page is created for all the web elements available on CRM home page.
@@ -16,6 +19,7 @@ public class CRMHomePage {
 	By searchaccount = By.xpath("//input[@aria-label='Search this view']");
 	By startsearch = By.xpath("//button[@aria-label='Start search']");
 	By accountTab = By.xpath("//span[contains(text(),'Accounts')]");
+	By clearsearch = By.xpath("//button[@title='Clear search']");
 				
 	public CRMHomePage(WebDriver driver) {
 		// TODO Auto-generated constructor stub
@@ -42,6 +46,11 @@ public class CRMHomePage {
 	public WebElement getAccountTab() {
 		// web element for the Account tab at left find side pane.
 		return driver.findElement(accountTab);
+	}
+	
+	public WebElement getClearSearch() {
+		// web element for the Account tab at left find side pane.
+		return driver.findElement(clearsearch);
 	}
 	
 }
