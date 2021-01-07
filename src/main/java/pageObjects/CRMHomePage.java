@@ -6,9 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import crmframework.crmAutomation.HomePageTest;
-import resources.base;
-
 public class CRMHomePage {
 
 	// this page is created for all the web elements available on CRM home page.

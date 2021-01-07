@@ -43,6 +43,30 @@ public class CRMIncentiveTab {
 	By inccon = By.xpath("//div[@title = 'New cyb']");
 	By incmar = By.xpath("//div[@title = '2010 January 1 Daily']");
 	
+	//New Incentive Details
+	By incdetails = By.xpath("//span[@aria-label='New Incentive Detail']");
+	
+	//Incentive text field
+	By inctxtbox = By.xpath("//input[@aria-label='Incentive, Lookup']");
+	
+	By incchangeview = By.xpath("//button[@aria-label='Change View']");
+	By activeincs = By.xpath("//li[@aria-label='Active Incentives']");
+	
+	//Incentive name
+	By incname = By.xpath("//span[@data-id='xxc_incentiveid.fieldControl-xxc_accountid0_0_3']");
+	
+	//Incentive Category text field
+	By inccattxtbox = By.xpath("//input[@aria-label='Incentive Category, Lookup']");
+	By inccatsearch = By.xpath("//button[@aria-label='Search records for Incentive Category, Lookup field']");
+	By inccatagname = By.xpath("//li[@aria-label='Atlanta Hotel']");
+	
+	//Incentive details Save & Close button
+	By incdtlssavenclose = By.xpath("//button[@aria-label='Save and Close']");
+			
+	//Verification of Incentive details
+	By validateincname = By.xpath("//div[@data-id='cell-0-4']");
+	By incdtlssuccessmsg = By.xpath("//span[@data-id='notification-message']");
+			
 	public CRMIncentiveTab (WebDriver driver) {	
 		this.driver = driver;
 	}
@@ -117,4 +141,47 @@ public class CRMIncentiveTab {
 		return driver.findElement(incmar);
 	}
 
+	public WebElement getIncDetaills() {
+		return driver.findElement(incdetails);
+	}
+	
+	public WebElement getInctxtbx(){
+		return driver.findElement(inctxtbox);
+	}
+	
+	public WebElement getIncChangeView() {
+		return driver.findElement(incchangeview);
+	}
+	
+	public WebElement getIncActiveIncs(){
+		return driver.findElement(activeincs);
+	}
+	
+	public WebElement getIncName(){
+		return driver.findElement(incname);
+	}
+	
+	public WebElement getIncCattxtbx(){
+		return driver.findElement(inccattxtbox);
+	}
+	
+	public WebElement getIncCatSearch(){
+		return driver.findElement(inccatsearch);
+	}
+	
+	public WebElement getIncCatName(){
+		return driver.findElement(inccatagname);
+	}
+	
+	public WebElement getIncDetailsSavenClose(){
+		return driver.findElement(incdtlssavenclose);
+	}
+	
+	public WebElement getValidateIncName(){
+		return driver.findElement(validateincname);
+	}
+	
+	public WebElement getIncdtlsSuccessMsg(){
+		return driver.findElement(incdtlssuccessmsg);
+	}
 }
