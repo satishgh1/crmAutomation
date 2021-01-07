@@ -5,8 +5,7 @@
     <classes>
       <class name="crmframework.crmAutomation.HomePageTest">
         <methods>
-          <include name="crmhomepage"/>
-          <include name="validateRelatedTabs"/>
+          <include name="AddIncentive"/>
           <include name="initialize"/>
           <include name="teardown"/>
         </methods>
